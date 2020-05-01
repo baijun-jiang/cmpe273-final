@@ -31,9 +31,20 @@ Implement LRU cache as Python decorator and you can pass cache size as argument.
 
 ```python
 @lru_cache(5)
-def get():
+def get(...):
     ...
     return ...
+    
+@lru_cache(5)
+def put(...):
+    ...
+    return ...
+
+@lru_cache(5)
+def delete(...):
+    ...
+    return ...
+
 ```
 
 @lru_cache is your implementation as a decorator function and do NOT use any existing LRU libraries.
