@@ -76,8 +76,9 @@ def get(key):
         return None
         
 @lru_cache(5)
-def put(key):
-    bloomfilter.add(key):
+def put(key, value):
+    bloomfilter.add(key)
+    return udp_client.put(key, value)
 
 @lru_cache(5)
 def delete(key):
