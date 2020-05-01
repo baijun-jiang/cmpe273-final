@@ -25,7 +25,7 @@ _Response_
 
 ## 2. LRU Cache
 
-You will be adding LRU cache on the server side. On each GET, PUT, and DELETE call, you will be checking against data from a local cache.
+In order to reduce unnecessary network calls to the servers, you will be adding LRU cache on client side. On each GET, PUT, and DELETE call, you will be checking against data from a local cache.
 
 Implement LRU cache as Python decorator and you can pass cache size as argument.
 
