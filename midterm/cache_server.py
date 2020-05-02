@@ -1,5 +1,6 @@
 import sys
 import socket
+import json
 
 from server_config import NODES
 from pickle_hash import deserialize, hash_code_hex
@@ -35,8 +36,7 @@ class UDPServer():
 
     def handle_operation(self, operation, key, value):
         if operation == 'GET':
-            # TODO: PART I - implement GET retrieval from self.db.xxxxx
-            return 'FIX_ME'.encode()
+            return self.db.get(key)
         elif operation == 'PUT':
             return self.db.put(key, value)
         else:
@@ -55,6 +55,8 @@ class UDPServer():
             # reply back to the client
             if isinstance(response, str):
                 response = response.encode()
+            elif isinstance(response, dict):
+                response = json.dumps(response).encode()
 
             s.sendto(response, ip)
 
