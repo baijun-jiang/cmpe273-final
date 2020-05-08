@@ -75,13 +75,11 @@ def get(key):
         return udp_client.get(key)
     else:
         return None
-        
-@lru_cache(5)
+
 def put(key, value):
     bloomfilter.add(key)
     return udp_client.put(key, value)
 
-@lru_cache(5)
 def delete(key):
     if bloomfilter.is_member(key):
         return udp_client.delete(key)
