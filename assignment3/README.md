@@ -25,9 +25,9 @@ _Response_
 
 ## 2. LRU Cache
 
-In order to reduce unnecessary network calls to the servers, you will be adding LRU cache on client side. On each GET, PUT, and DELETE call, you will be checking against data from a local cache.
+In order to reduce unnecessary network calls to the servers, you will be adding LRU cache on client side. On each GET call, you will be checking against data from a local cache.
 
-Implement LRU cache as Python decorator and you can pass cache size as argument.
+Implement LRU cache as Python decorator and you can pass cache size as argument. You must name the name as lru_cache.py and can be tested via test_lru_cache.py.
 
 ```python
 @lru_cache(5)
@@ -35,19 +35,20 @@ def get(...):
     ...
     return ...
     
-@lru_cache(5)
+
 def put(...):
     ...
     return ...
 
-@lru_cache(5)
 def delete(...):
     ...
     return ...
 
 ```
 
-@lru_cache is your implementation as a decorator function and do NOT use any existing LRU libraries.
+@lru_cache is your implementation as a decorator function and do NOT use any existing LRU libraries. 
+
+> Although you do not need to print execution time __[0.00000191s]__ and cache hit logs __[cache-hit]__, you should able to run test_lru_cache.py successfully without any errors in order to get full credits.
 
 ## 3. Bloom Filter
 
