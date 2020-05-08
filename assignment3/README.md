@@ -64,6 +64,25 @@ This is_member() function checks whether a given key is in the membership or not
 
 On the client side, the GET and DELETE will invoke is_member(key) function first prior to calling the servers while the PUT and DELETE will call add(key) function to update the membership.
 
+Bit array and hash libraries:
+
+```
+pipenv install bitarray
+pipenv install mmh3
+```
+
+Use this formula to calculate Bit array size:
+
+```
+m = - (n * log(p)) / (log(2)^2) 
+
+```
+
+where,
+- m = bit array size
+- n = number of expected keys to be stored
+- p = Probability of desired false positive rate
+
 Answer the following question:
 
 * What are the best _k_ hashes and _m_ bits values to store one million _n_ keys (E.g. e52f43cd2c23bb2e6296153748382764) suppose we use the same MD5 hash key from [pickle_hash.py](https://github.com/sithu/cmpe273-spring20/blob/master/midterm/pickle_hash.py#L14) and explain why?
@@ -87,6 +106,8 @@ def delete(key):
         return None
 
 ```
+
+You can validate your implementation using _test_bloom_filter.py_ and should get the expected output as test_bloom_filter_output.txt .
 
 
 
